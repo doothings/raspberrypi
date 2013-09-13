@@ -23,9 +23,11 @@
 
       ```user:password:level```
       
-      Example: ```pi:pi:10``` [10 is full-access/administrative level for the daemon]
       
-  4. ```deluged```
+      Example : ```pi:pi:10``` (10 is full-access/administrative level for the daemon)
+      
+      
+  4.  ```deluged```
 
       ```deluge-console```
       
@@ -39,14 +41,14 @@
 
       ```deluged```
       
-  6.  ```sudo apt-get install deluged
+  6.  ```sudo apt-get install deluged```
 
-        sudo apt-get install python-mako
+      ```sudo apt-get install python-mako```
 
-        sudo apt-get install deluge-web
+      ```sudo apt-get install deluge-web```
 
-        deluge-web```
+      ```deluge-web```
         
   7.  Access deluge-web from a remote machine on the same network.
   
-      Navigate to http://<raspi-ip>:8112/ . You have a torrent server at your service!
+      Navigate to ```http://<raspi-ip>:8112/``` . You have a torrent server at your service!

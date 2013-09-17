@@ -64,4 +64,4 @@
 
       You have a torrent server at your service!
       
-      Enter the password from step 3 and immediately change it.
+      Enter the password from step 4 and immediately change it.

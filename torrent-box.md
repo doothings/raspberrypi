@@ -64,4 +64,8 @@
 
       You have a torrent server at your service!
       
-      Enter the password from step 4 and immediately change it.
+      Enter the password as ```deluge``` and immediately change it.
+      
+  9. In addition to accessing the web-gui from you can also access it from an Android application like [Torrent Manager](https://play.google.com/store/apps/details?id=com.jpsfs.torrentmanager). 
+    
+    While using this app just provide the password which was changed in step 8.

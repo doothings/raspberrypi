@@ -13,7 +13,7 @@ What better way than to use Raspberry Pi?
 
 4. ```screen``` and then press ```Enter```
 
-5. ```irssi```
+5. IRSSI ```irssi```
 
 6. ```/server irc.freenode.net```
 
@@ -25,7 +25,7 @@ What better way than to use Raspberry Pi?
 
 10. You should be back to the terminal window.
 
-11. To rejoin the IRC window write ```screen -r```
+11. To rejoin the IRC window run ```screen -r```
 
 
 ### Settings for irssi
@@ -41,5 +41,17 @@ What better way than to use Raspberry Pi?
 3. Auto Join to Specificed channels 
 
     ```/CHANNEL ADD -auto #doothings IRCnet```
+    
+4. To Keep logging all these conversations
 
-4. ```/SAVE``` to save the entire configuration.
+    ```/SET AUTOLOG ON```
+    
+5. To set Nicks and Real Name etc. 
+
+    ```/SET``` -> This should show all existing configured parameters.
+    
+    To change these just say
+    
+    ```/SET param-name value``` like ```/SET nick nism-pi```
+
+6. ```/SAVE``` to save the entire configuration.

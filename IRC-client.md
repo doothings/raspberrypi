@@ -26,3 +26,20 @@ What better way than to use Raspberry Pi?
 10. You should be back to the terminal window.
 
 11. To rejoin the IRC window write ```screen -r```
+
+
+### Settings for irssi
+
+1. To ignore joins / quits / nicks changes on a specific channel. 
+
+    ```/ignore -channels #chan1,#chan2,#chan3 * JOINS PARTS QUITS NICKS```
+    
+2. Auto Connect to a Server on startup
+
+    ```/SERVER ADD -auto -network IRCnet irc.freenode.net 6667```
+    
+3. Auto Join to Specificed channels 
+
+    ```/CHANNEL ADD -auto #doothings IRCnet```
+
+4. ```/SAVE``` to save the entire configuration.

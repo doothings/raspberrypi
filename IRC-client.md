@@ -54,4 +54,9 @@ What better way than to use Raspberry Pi?
     
     ```/SET param-name value``` like ```/SET nick nism-pi```
 
-6. ```/SAVE``` to save the entire configuration.
+6. To auto-identify on connecting with NickServ 
+
+    ```/network add -autosendcmd "/msg nickserv identify <password> ;wait 2000" IRCnet```
+    
+    
+7. ```/SAVE``` to save the entire configuration.

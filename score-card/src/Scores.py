@@ -7,19 +7,22 @@
 from __future__ import print_function, division, absolute_import, unicode_literals
 from RPLCD import *
 import httplib
-import json
-
+import time
+import re
 
 
 ####################### Constatnts #############################
 
 teams = ["England", "India", "Sri Lanka", "West Indies"]
-rows = ["timeRow" : 0 , "team1Row" : 1 , "team2Row" : 2 , "playerRow" : 3]
+rows = {"time" : 0 , "team1" : 1 , "team2" : 2 , "player" : 3}
 
 
 ###################### functions ##############################
 
+display = None
+
 def initLCD():
+	global display
 	display =CharLCD()
 	display.clear()
 	display.cursor_mode = CursorMode.blink
@@ -46,11 +49,12 @@ def getMatchScore(matchId):
 	Response = Con.getresponse()
 	return eval(Response.read())  ## Disputed
 
-def getTeamName(names):
-	
+def getTeamNameandScores(status):
+	print(status)
+	Result = re.search("([a-zA-Z\ ]+)([0-9]+\/[0-9]+)[\ \*]*v([a-zA-Z\ ]+)([0-9]+\/[0-9]+)",status)
+	names = [Result.group(1), Result.group(2), Result.group(3), Result.group(4)]
+	return names
 
-
-def getTeamScores(scores):
 
 ###############################################################################
 
@@ -63,14 +67,33 @@ matches = getMatchList()
 #Get the Match ID
 matchIds = getFavsIds(matches, teams)
 
-#get the score for all matches
-scores = getMatchScore(matchIds)  # all scores
+#get the status for all matches
+statuses = getMatchScore(matchIds)  # all scores
 
 # Display Scores
 
-for score in scores:
-	team_names  = getTeamName(score['si'])
-	team_scores = getTeamScores(score['si'])
+for status in statuses:
+	
+	s = getTeamNameandScores(status['si'])
+	#display
+	display.clear()
+	
+	display.cursor_pos = (rows["team1"],0)
+	display.write_string(s[0].strip())
+	display.cursor_pos = (rows["team1"], 14)
+	display.write_string(s[1])
+
+	display.cursor_pos = (rows["team2"],0)
+	display.write_string(s[2].strip())
+	display.cursor_pos = (rows["team2"], 14)
+	display.write_string(s[3])
+
+	#time.sleep(60/ len(statuses))
+
+
+
+	
+
 
 
 
@@ -92,11 +115,11 @@ for score in scores:
 #index = text.find(" v ")
 
 
-display.cursor_pos = (1,0)
-display.write_string(text[:index])
-display.cursor_pos = (2,0)
-display.write_string(text[index+3:])
-print(text)
+#display.cursor_pos = (1,0)
+#display.write_string(text[:index])
+#display.cursor_pos = (2,0)
+#display.write_string(text[index+3:])
+#print(text)
 
 #display.write_string(text)
 
